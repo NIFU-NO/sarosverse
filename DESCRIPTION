@@ -13,3 +13,5 @@ Suggests:
 VignetteBuilder: knitr
 Authors@R: 
     person(, role = "ctb")
+URL: https://github.com/NIFU-NO/sarosverse
+BugReports: https://github.com/NIFU-NO/sarosverse/issues
