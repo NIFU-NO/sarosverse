@@ -1,0 +1,36 @@
+---
+title: "Setting up social science project - for project managers"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Setting up social science project - for project managers}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+# Configuring a project for the very first time
+
+-   
+
+```{r}
+library(sarosverse)
+project_full_title <- "Deltakerundersøkelsene"
+project_initials <- "DU"
+project_path <- fs::path(Sys.getenv("OneDrive"), project_full_title)
+initialize_saros_project(path = project_path, 
+                         structure_path = system.file("templates", "YAML", "_project_structure_nb.yaml", package="nifutheme"), 
+                         replacement_list = c("prosjekt_initialer" = project_initials),
+                         r_files_output = fs::path(project_path, paste0("5_saros_", project_initials), "51_skript"), 
+                         create = FALSE) # SET create = TRUE when you are satisfied with the folder structure
+
+nifutheme::configure_saros_for_nifu(path = fs::path(project_path, paste0("5_saros_", project_initials), "52_ressurser"))
+
+```
+
